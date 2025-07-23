@@ -104,14 +104,7 @@ Public Class principal
         frm.Show()
     End Sub
 
-    Private Sub ConsultarVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarVentaToolStripMenuItem.Click
-        Dim frm As New FormConsultarVentas()
-        frm.MdiParent = Me
-        MostrarControlesPrincipal(False)
 
-        AddHandler frm.FormClosed, Sub(s, args) MostrarControlesPrincipal(True)
-        frm.Show()
-    End Sub
     Private Sub ClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClientesToolStripMenuItem.Click
         Dim frm As New FrmClientes()
         frm.MdiParent = Me
@@ -149,7 +142,8 @@ Public Class principal
         EstilizarBoton(btnVendedores, Color.FromArgb(40, 167, 69))       ' Verde
         EstilizarBoton(btnProductos, Color.FromArgb(255, 193, 7))        ' Amarillo
         EstilizarBoton(btnregistrarVentas, Color.FromArgb(108, 117, 125)) ' Gris
-        EstilizarBoton(btnConsultarVenta, Color.FromArgb(220, 53, 69))  ' Rojo
+
+
     End Sub
     Private Sub EstilizarBoton(boton As Button, colorFondo As Color)
         boton.BackColor = colorFondo
@@ -197,29 +191,56 @@ Public Class principal
         frm.Show()
     End Sub
 
-    Private Sub btnConsultarVenta_Click(sender As Object, e As EventArgs) Handles btnConsultarVenta.Click
-        Dim frm As New FormConsultarVentas()
-        frm.MdiParent = Me
-        MostrarControlesPrincipal(False)
 
-        AddHandler frm.FormClosed, Sub(s, args) MostrarControlesPrincipal(True)
-        frm.Show()
-    End Sub
     Private Sub MostrarControlesPrincipal(visible As Boolean)
-        ' Oculta o muestra los controles que quieras (botones, label, picturebox, etc.)
+
         Label1.Visible = visible
         btnClientes.Visible = visible
         btnVendedores.Visible = visible
         btnProductos.Visible = visible
         btnregistrarVentas.Visible = visible
-        btnConsultarVenta.Visible = visible
-        ' Si tienes PictureBox u otros controles, agrégalos aquí también
+
+
         PictureBox1.Visible = visible
         GroupBox1.Visible = visible
         GroupBox2.Visible = visible
+        GroupBox3.Visible = visible
     End Sub
 
     Private Sub SalirToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem1.Click
         Me.Close()
+    End Sub
+
+    Private Sub btnClie_Click(sender As Object, e As EventArgs) Handles btnClie.Click
+        Dim reporte As New RepoorteCliente()
+        reporte.MdiParent = Me
+
+        MostrarControlesPrincipal(False)
+
+        AddHandler reporte.FormClosed, Sub(s, args) MostrarControlesPrincipal(True)
+
+        reporte.Show()
+    End Sub
+
+    Private Sub btnProducto_Click(sender As Object, e As EventArgs) Handles btnProducto.Click
+        Dim reporte As New ReporteProducto()
+        reporte.MdiParent = Me
+
+        MostrarControlesPrincipal(False)
+
+        AddHandler reporte.FormClosed, Sub(s, args) MostrarControlesPrincipal(True)
+
+        reporte.Show()
+    End Sub
+
+    Private Sub btnVendedor_Click(sender As Object, e As EventArgs) Handles btnVendedor.Click
+        Dim reporte As New ReporteVendedor()
+        reporte.MdiParent = Me
+
+        MostrarControlesPrincipal(False)
+
+        AddHandler reporte.FormClosed, Sub(s, args) MostrarControlesPrincipal(True)
+
+        reporte.Show()
     End Sub
 End Class

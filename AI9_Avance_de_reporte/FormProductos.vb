@@ -18,6 +18,7 @@ Public Class FormProductos
 
         EstilizarTextBox(txtNombre)
         EstilizarTextBox(txtPrecio)
+
     End Sub
 
     Private Sub CargarProductos()

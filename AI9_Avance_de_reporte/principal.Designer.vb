@@ -26,13 +26,14 @@ Partial Class principal
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(principal))
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VendedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsultarVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
@@ -42,16 +43,18 @@ Partial Class principal
         Me.btnProductos = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnregistrarVentas = New System.Windows.Forms.Button()
-        Me.btnConsultarVenta = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalirToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.btnVendedor = New System.Windows.Forms.Button()
+        Me.btnProducto = New System.Windows.Forms.Button()
+        Me.btnClie = New System.Windows.Forms.Button()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip
@@ -64,6 +67,19 @@ Partial Class principal
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
+        'ArchivoToolStripMenuItem
+        '
+        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalirToolStripMenuItem1})
+        Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
+        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
+        Me.ArchivoToolStripMenuItem.Text = "Archivo"
+        '
+        'SalirToolStripMenuItem1
+        '
+        Me.SalirToolStripMenuItem1.Name = "SalirToolStripMenuItem1"
+        Me.SalirToolStripMenuItem1.Size = New System.Drawing.Size(96, 22)
+        Me.SalirToolStripMenuItem1.Text = "Salir"
+        '
         'WindowsMenu
         '
         Me.WindowsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.VendedoresToolStripMenuItem, Me.ProductosToolStripMenuItem})
@@ -74,39 +90,33 @@ Partial Class principal
         'ClientesToolStripMenuItem
         '
         Me.ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
-        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.ClientesToolStripMenuItem.Text = "Clientes"
         '
         'VendedoresToolStripMenuItem
         '
         Me.VendedoresToolStripMenuItem.Name = "VendedoresToolStripMenuItem"
-        Me.VendedoresToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.VendedoresToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.VendedoresToolStripMenuItem.Text = "Vendedores"
         '
         'ProductosToolStripMenuItem
         '
         Me.ProductosToolStripMenuItem.Name = "ProductosToolStripMenuItem"
-        Me.ProductosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ProductosToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.ProductosToolStripMenuItem.Text = "Productos"
         '
         'VentasToolStripMenuItem
         '
-        Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarVentaToolStripMenuItem, Me.ConsultarVentaToolStripMenuItem})
+        Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarVentaToolStripMenuItem})
         Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
-        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(102, 20)
-        Me.VentasToolStripMenuItem.Text = "Consultar Venta"
+        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(51, 20)
+        Me.VentasToolStripMenuItem.Text = " Venta"
         '
         'RegistrarVentaToolStripMenuItem
         '
         Me.RegistrarVentaToolStripMenuItem.Name = "RegistrarVentaToolStripMenuItem"
         Me.RegistrarVentaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RegistrarVentaToolStripMenuItem.Text = "Registrar Venta"
-        '
-        'ConsultarVentaToolStripMenuItem
-        '
-        Me.ConsultarVentaToolStripMenuItem.Name = "ConsultarVentaToolStripMenuItem"
-        Me.ConsultarVentaToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ConsultarVentaToolStripMenuItem.Text = "Consultar Venta"
         '
         'StatusStrip
         '
@@ -173,32 +183,22 @@ Partial Class principal
         '
         'btnregistrarVentas
         '
-        Me.btnregistrarVentas.Location = New System.Drawing.Point(33, 19)
+        Me.btnregistrarVentas.Location = New System.Drawing.Point(111, 19)
         Me.btnregistrarVentas.Name = "btnregistrarVentas"
         Me.btnregistrarVentas.Size = New System.Drawing.Size(109, 23)
         Me.btnregistrarVentas.TabIndex = 14
         Me.btnregistrarVentas.Text = "Registrar Ventas"
         Me.btnregistrarVentas.UseVisualStyleBackColor = True
         '
-        'btnConsultarVenta
-        '
-        Me.btnConsultarVenta.Location = New System.Drawing.Point(179, 19)
-        Me.btnConsultarVenta.Name = "btnConsultarVenta"
-        Me.btnConsultarVenta.Size = New System.Drawing.Size(109, 23)
-        Me.btnConsultarVenta.TabIndex = 15
-        Me.btnConsultarVenta.Text = "Consultar Venta"
-        Me.btnConsultarVenta.UseVisualStyleBackColor = True
-        '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.btnConsultarVenta)
         Me.GroupBox2.Controls.Add(Me.btnregistrarVentas)
         Me.GroupBox2.Location = New System.Drawing.Point(17, 209)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(373, 67)
         Me.GroupBox2.TabIndex = 16
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Registro y Consulta de Ventas"
+        Me.GroupBox2.Text = "Registro"
         '
         'PictureBox1
         '
@@ -209,24 +209,51 @@ Partial Class principal
         Me.PictureBox1.TabIndex = 17
         Me.PictureBox1.TabStop = False
         '
-        'ArchivoToolStripMenuItem
+        'GroupBox3
         '
-        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalirToolStripMenuItem1})
-        Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
-        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
-        Me.ArchivoToolStripMenuItem.Text = "Archivo"
+        Me.GroupBox3.Controls.Add(Me.btnVendedor)
+        Me.GroupBox3.Controls.Add(Me.btnProducto)
+        Me.GroupBox3.Controls.Add(Me.btnClie)
+        Me.GroupBox3.Location = New System.Drawing.Point(25, 305)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(365, 104)
+        Me.GroupBox3.TabIndex = 19
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Reportes"
         '
-        'SalirToolStripMenuItem1
+        'btnVendedor
         '
-        Me.SalirToolStripMenuItem1.Name = "SalirToolStripMenuItem1"
-        Me.SalirToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
-        Me.SalirToolStripMenuItem1.Text = "Salir"
+        Me.btnVendedor.Location = New System.Drawing.Point(229, 42)
+        Me.btnVendedor.Name = "btnVendedor"
+        Me.btnVendedor.Size = New System.Drawing.Size(79, 23)
+        Me.btnVendedor.TabIndex = 2
+        Me.btnVendedor.Text = "Vendedores"
+        Me.btnVendedor.UseVisualStyleBackColor = True
+        '
+        'btnProducto
+        '
+        Me.btnProducto.Location = New System.Drawing.Point(114, 42)
+        Me.btnProducto.Name = "btnProducto"
+        Me.btnProducto.Size = New System.Drawing.Size(75, 23)
+        Me.btnProducto.TabIndex = 1
+        Me.btnProducto.Text = "Productos"
+        Me.btnProducto.UseVisualStyleBackColor = True
+        '
+        'btnClie
+        '
+        Me.btnClie.Location = New System.Drawing.Point(16, 42)
+        Me.btnClie.Name = "btnClie"
+        Me.btnClie.Size = New System.Drawing.Size(75, 23)
+        Me.btnClie.TabIndex = 0
+        Me.btnClie.Text = "Clientes"
+        Me.btnClie.UseVisualStyleBackColor = True
         '
         'principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1095, 453)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -244,6 +271,7 @@ Partial Class principal
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -255,7 +283,6 @@ Partial Class principal
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
     Friend WithEvents VentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegistrarVentaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ConsultarVentaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ClientesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VendedoresToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProductosToolStripMenuItem As ToolStripMenuItem
@@ -265,9 +292,12 @@ Partial Class principal
     Friend WithEvents btnProductos As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnregistrarVentas As Button
-    Friend WithEvents btnConsultarVenta As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents ArchivoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents btnClie As Button
+    Friend WithEvents btnProducto As Button
+    Friend WithEvents btnVendedor As Button
 End Class

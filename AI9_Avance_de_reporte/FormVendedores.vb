@@ -92,7 +92,7 @@ Public Class FormVendedores
     End Sub
 
     Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
-        If txtIdVendedor.Text = "" Then
+        If txtId.Text = "" Then
             MessageBox.Show("Por favor, seleccione un vendedor para actualizar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
@@ -106,16 +106,18 @@ Public Class FormVendedores
         Dim sql As String = "UPDATE Vendedor SET Nombre = @Nombre, Usuario = @Usuario, Password = @Password WHERE IdVendedor = @IdVendedor"
         Dim cmd As New SqlCommand(sql, con)
 
-        cmd.Parameters.AddWithValue("@IdVendedor", Convert.ToInt32(txtIdVendedor.Text))
+        ' CORREGIDO: se usa txtId en lugar de txtIdVendedor
+        cmd.Parameters.AddWithValue("@IdVendedor", Convert.ToInt32(txtId.Text))
         cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text)
         cmd.Parameters.AddWithValue("@Usuario", txtUsuario.Text)
         cmd.Parameters.AddWithValue("@Password", txtPassword.Text)
 
         Try
             con.Open()
-            Dim filaAfectadas As Integer = cmd.ExecuteNonQuery()
+            Dim filasAfectadas As Integer = cmd.ExecuteNonQuery()
             con.Close()
-            If filaAfectadas > 0 Then
+
+            If filasAfectadas > 0 Then
                 MessageBox.Show("Vendedor actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 LimpiarCampos()
                 CargarVendedores()

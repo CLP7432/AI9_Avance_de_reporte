@@ -48,10 +48,29 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -73,11 +92,15 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormConsultarVentas.Designer.vb">
-      <DependentUpon>FormConsultarVentas.vb</DependentUpon>
+    <Compile Include="DataSetProducto.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetProducto.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FormConsultarVentas.vb">
-      <SubType>Form</SubType>
+    <Compile Include="DsCliente.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsCliente.xsd</DependentUpon>
     </Compile>
     <Compile Include="FormProductos.Designer.vb">
       <DependentUpon>FormProductos.vb</DependentUpon>
@@ -131,11 +154,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PventaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RepoorteCliente.Designer.vb">
+      <DependentUpon>RepoorteCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RepoorteCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteProducto.Designer.vb">
+      <DependentUpon>ReporteProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteVendedor.Designer.vb">
+      <DependentUpon>ReporteVendedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteVendedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormConsultarVentas.resx">
-      <DependentUpon>FormConsultarVentas.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormProductos.resx">
       <DependentUpon>FormProductos.vb</DependentUpon>
     </EmbeddedResource>
@@ -157,8 +195,48 @@
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RepoorteCliente.resx">
+      <DependentUpon>RepoorteCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="ReporteCliente.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="ReporteProducto.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteProducto.resx">
+      <DependentUpon>ReporteProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteVendedor.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteVendedor.resx">
+      <DependentUpon>ReporteVendedor.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DataSetProducto.xsc">
+      <DependentUpon>DataSetProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetProducto.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetProducto.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetProducto.xss">
+      <DependentUpon>DataSetProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DsCliente.xsc">
+      <DependentUpon>DsCliente.xsd</DependentUpon>
+    </None>
+    <None Include="DsCliente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsCliente.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DsCliente.xss">
+      <DependentUpon>DsCliente.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -169,6 +247,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="PventaDataSet.xsc">
       <DependentUpon>PventaDataSet.xsd</DependentUpon>
     </None>
@@ -183,6 +262,22 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Logo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\Loader.cs" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

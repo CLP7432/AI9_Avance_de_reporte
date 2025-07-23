@@ -1,5 +1,10 @@
 ﻿Imports System.Data.SqlClient
 Public Class FrmClientes
+    Public Sub New()
+        InitializeComponent()
+        Me.IsMdiContainer = False
+    End Sub
+
     Private Sub FrmClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarClientes()
         LimpiarCampos()
